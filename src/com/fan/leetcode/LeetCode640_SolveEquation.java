@@ -5,11 +5,11 @@ package com.fan.leetcode;
  */
 public class LeetCode640_SolveEquation {
     public static void main(String[] args) {
-//        System.out.println(solveEquation("x+5-3+x=6+x-2"));
-//        System.out.println(solveEquation("x=x"));
-//        System.out.println(solveEquation("2x+3x-6x=x+2"));
-//        System.out.println(solveEquation("-99x=99"));
-//        System.out.println(solveEquation("0x=0"));
+        System.out.println(solveEquation("x+5-3+x=6+x-2"));
+        System.out.println(solveEquation("x=x"));
+        System.out.println(solveEquation("2x+3x-6x=x+2"));
+        System.out.println(solveEquation("-99x=99"));
+        System.out.println(solveEquation("0x=0"));
         System.out.println(solveEquation("2x+3x-6x=x+2"));
     }
     public static String solveEquation(String equation) {
@@ -48,7 +48,6 @@ public class LeetCode640_SolveEquation {
                 }
                 if (i < chars.length && chars[i] == 'x') {
                     xNum += curNum * sign;
-                    i++;
                 } else {
                     numSum += curNum * sign;
                     i--;
