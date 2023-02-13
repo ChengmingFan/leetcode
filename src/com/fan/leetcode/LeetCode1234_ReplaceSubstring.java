@@ -1,25 +1,44 @@
 package com.fan.leetcode;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by Chengming Fan on 2023/2/13 11:54 AM
  */
 public class LeetCode1234_ReplaceSubstring {
-    // 替换子串
-    public int balancedString(String s) {
-        int count = s.length() / 4;
-        int maxWindowLength = 0;
-        int[] counts = new int[4];
-        int left = 0, right = 0;
-        while (right < s.length()) {
-            char cur = s.charAt(right);
-            int curCount = ++counts[cur - 'Q'];
-            if (curCount > count) {
-                while (s.charAt(left) != cur) {
-                    left--;
-                    counts[s.charAt(left) - 'Q']--;
-                }
-            }
-        }
-        return 0;
+    public static void main(String[] args) {
+        String s = "QQQW";
+        System.out.println(balancedString(s));
     }
+
+    /**
+     * 用滑动窗口表示要替换的字串, 如果字串外的任意字符的出现次数都不超过m,
+     * 则说明left到right的这段字串可以是待替换字串
+     */
+    public static int balancedString(String s) {
+        char[] chars = s.toCharArray();
+        int[] counts = new int['X'];
+        for (char ch : chars) {
+            counts[ch]++;
+        }
+        int n = chars.length, m = n / 4;
+        if (counts['Q'] == m && counts['W'] == m && counts['E'] == m && counts['R'] == m) {
+            return 0;
+        }
+        int left = 0, right = 0;
+        int ans = n;
+        while (right < n) {
+            counts[chars[right]]--;
+            while (counts['Q'] <= m && counts['W'] <= m && counts['E'] <= m && counts['R'] <= m) {
+                ans = Math.min(ans, right - left + 1);
+                // 缩小窗口
+                counts[chars[left]]++;
+                left++;
+            }
+            right++;
+        }
+        return ans;
+    }
+
 }
