@@ -11,7 +11,7 @@ public class LeetCode2357_MakeArrayZero {
         System.out.println(minimumOperations(nums));
     }
 
-    public static int minimumOperations(int[] nums) {
+     public static int minimumOperations(int[] nums) {
         Arrays.sort(nums);
         int preNum = 0;
         int count = 0;
