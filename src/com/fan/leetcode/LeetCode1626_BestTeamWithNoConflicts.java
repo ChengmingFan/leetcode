@@ -16,7 +16,7 @@ public class LeetCode1626_BestTeamWithNoConflicts {
         Arrays.sort(arr, ((o1, o2) -> o1[0] == o2[0] ? o1[1] - o2[1] : o1[0] - o2[0]));
         int[] dp = new int[n];
         int ans = 0;
-        for (int i = 1; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             dp[i] = arr[i][1];
             for (int j = i - 1; j >= 0; j--) {
                 if (arr[j][1] <= arr[i][1]) {
